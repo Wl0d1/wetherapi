@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 25px;
+}
+
+.btn-search {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}

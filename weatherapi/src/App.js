@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import WeatherCity from "./components/WeatherCity";
+import WeatherInfo from "./components/WeatherInfo";
+import WeatherLocation from "./components/WeatherLocation";
+import useFetch from "./components/customHook/useFetch.js";
 
 function App() {
+  const dataWeather = useFetch(2);
+  const { weather, onSearchLocation } = dataWeather;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <WeatherCity />
+      <div>
+        {weather?.name}
+        {weather?.sys?.country}
+      </div>
+      <WeatherInfo name={"wind:"} value={weather?.wind?.speed} />
+      <WeatherInfo name={"humidity:"} value={weather?.main?.humidity} />
+      <WeatherInfo name={"pressure:"} value={weather?.main?.pressure} />
     </div>
   );
 }
