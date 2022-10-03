@@ -1,13 +1,7 @@
 import React from "react";
 
 const Location = (props) => {
-  return (
-    <ul>
-      {props.location.map((location) => (
-        <li>{location}</li>
-      ))}
-    </ul>
-  );
-};
+    return <p className="text">City: {props.location}</p>;
+  };
 
 export default Location;
