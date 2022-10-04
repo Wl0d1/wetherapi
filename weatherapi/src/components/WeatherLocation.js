@@ -1,7 +1,12 @@
 import React from "react";
+import "./WeatherLocation.css";
 
 const Location = (props) => {
-    return <p className="text">City: {props.location}</p>;
+    return (
+      <>
+    <p>{props.location} {props.country}</p>
+    </>
+    )
   };
 
 export default Location;

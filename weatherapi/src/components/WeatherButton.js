@@ -8,7 +8,7 @@ const WeatherButton = (props) => {
         <input
           type="text"
           onChange={props.onChange}
-          placeholoder="type a message"
+          placeholder="type a message"
         />
         <button className="btn-search" type="submit">
           Search
