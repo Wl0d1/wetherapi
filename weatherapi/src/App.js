@@ -6,14 +6,19 @@ import WeatherHeadline from "./components/WeatherHeadline";
 import WeatherIcon from "./components/WeatherIcon";
 import WeatherButton from "./components/WeatherButton";
 import WeatherDescriptionLocation from "./components/WeatherDescriptionLocation";
+import WeatherDay from "./components/WeatherDay";
+
 import WeatherIconLocation from "./components/WeatherIconLocation";
 import { GiWindsock } from "react-icons/gi";
 import { GiTopaz } from "react-icons/gi";
 import { GiPressureCooker } from "react-icons/gi";
+import { BsSun } from "react-icons/bs";
 
 function App() {
-  const dataWeather = useFetch(4);
-  const { weather, addLocation, onButtonClick} = dataWeather;
+  const dataWeather = useFetch();
+  const { weather, addLocation, onButtonClick, getTime } = dataWeather;
+
+
 
   return (
     <div className="container">
@@ -31,12 +36,16 @@ function App() {
         location={weather?.name}
         country={weather?.sys?.country}
       />
+      <BsSun />
+      <WeatherInfo
+        name={weather?.weather[0].icon.includes("d") ? "sunrise" : "sunset"} value={`${getTime(weather?.sys[weather?.weather[0].icon.includes("d") ? "sunrise" : "sunset"])}`}
+      />
       <GiWindsock />
-      <WeatherInfo name={"wind:"} value={weather?.wind?.speed} />
+      <WeatherInfo name={"wind"} value={weather?.wind?.speed} />
       <GiTopaz />
-      <WeatherInfo name={"humidity:"} value={weather?.main?.humidity} />
+      <WeatherInfo name={"humidity"} value={weather?.main?.humidity} />
       <GiPressureCooker />
-      <WeatherInfo name={"pressure:"} value={weather?.main?.pressure} />
+      <WeatherInfo name={"pressure"} value={weather?.main?.pressure} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useFetch = (id) => {
+const useFetch = () => {
   const [weather, setWeather] = useState();
   const [textInput, setTextInput] = useState("");
 
@@ -18,11 +18,9 @@ const useFetch = (id) => {
     setTextInput(e.target.value);
   };
 
-  const addHandleChange = (e) => {
-    e.preventDefault();
-    setTextInput(textInput);
-  };
+  const getTime = (timestamp) => {
+    return `${new Date(timestamp * 1000).getHours()} : ${new Date(timestamp * 1000).getMinutes()} : ${new Date(timestamp * 1000).getSeconds()}`}
 
-  return { weather, addLocation, onButtonClick, addHandleChange };
+  return { weather, addLocation, onButtonClick, getTime };
 };
 export default useFetch;

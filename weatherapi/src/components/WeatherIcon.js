@@ -2,12 +2,12 @@ import "./WeatherIcon.css";
 
 const WeatherIcon = () => {
   return (
-    <span>
+    <span className='title-icon'>
       <img
         src="/icon/perfect-day.svg"
         alt=''
-        width="75"
-        height="75"
+        width="120"
+        height="120"
       ></img>
     </span>
   );

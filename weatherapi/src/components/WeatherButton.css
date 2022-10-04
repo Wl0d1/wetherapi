@@ -8,4 +8,11 @@
   color: white;
   background-color: black;
   cursor: pointer;
+  padding: 11px;
+}
+
+.search-title {
+  text-align: center;
+  font-weight: normal;
+  font-size: 18px;
 }
