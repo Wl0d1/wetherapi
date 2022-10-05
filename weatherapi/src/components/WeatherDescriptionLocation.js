@@ -1,4 +1,3 @@
-
 const WeatherDescriptionLocation = (props) => {
   const { value, descriptionWeather } = props;
 

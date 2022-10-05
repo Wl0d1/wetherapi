@@ -19,7 +19,10 @@ const useFetch = () => {
   };
 
   const getTime = (timestamp) => {
-    return `${new Date(timestamp * 1000).getHours()} : ${new Date(timestamp * 1000).getMinutes()} : ${new Date(timestamp * 1000).getSeconds()}`}
+    return `${new Date(timestamp * 1000).getHours()} : ${new Date(
+      timestamp * 1000
+    ).getMinutes()} : ${new Date(timestamp * 1000).getSeconds()}`;
+  };
 
   return { weather, addLocation, onButtonClick, getTime };
 };
