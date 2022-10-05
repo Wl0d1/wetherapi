@@ -6,7 +6,6 @@ import WeatherHeadline from "./components/WeatherHeadline";
 import WeatherIcon from "./components/WeatherIcon";
 import WeatherButton from "./components/WeatherButton";
 import WeatherDescriptionLocation from "./components/WeatherDescriptionLocation";
-import WeatherDay from "./components/WeatherDay";
 
 import WeatherIconLocation from "./components/WeatherIconLocation";
 import { GiWindsock } from "react-icons/gi";
@@ -17,8 +16,6 @@ import { BsSun } from "react-icons/bs";
 function App() {
   const dataWeather = useFetch();
   const { weather, addLocation, onButtonClick, getTime } = dataWeather;
-
-
 
   return (
     <div className="container">
@@ -31,14 +28,21 @@ function App() {
         value={`${Math.floor(weather?.main?.temp - 273)}°C`}
         descriptionWeather={weather?.weather[0].description}
       />
+
       <WeatherIconLocation value={weather?.weather[0].icon} />
       <WeatherLocation
         location={weather?.name}
         country={weather?.sys?.country}
       />
+
       <BsSun />
       <WeatherInfo
-        name={weather?.weather[0].icon.includes("d") ? "sunrise" : "sunset"} value={`${getTime(weather?.sys[weather?.weather[0].icon.includes("d") ? "sunrise" : "sunset"])}`}
+        name={weather?.weather[0].icon.includes("d") ? "sunrise" : "sunset"}
+        value={`${getTime(
+          weather?.sys[
+            weather?.weather[0].icon.includes("d") ? "sunrise" : "sunset"
+          ]
+        )}`}
       />
       <GiWindsock />
       <WeatherInfo name={"wind"} value={weather?.wind?.speed} />
