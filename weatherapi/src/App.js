@@ -34,6 +34,8 @@ function App() {
     width: 50%;
   `;
 
+  const isDay = weather?.weather[0].icon.includes("d");
+
   return (
     <div className="container">
       {weather === undefined ? (
@@ -58,16 +60,8 @@ function App() {
             <WeatherInfoContainer>
               <BsSun />
               <WeatherInfo
-                name={
-                  weather?.weather[0].icon.includes("d") ? "sunrise" : "sunset"
-                }
-                value={`${getTime(
-                  weather?.sys[
-                    weather?.weather[0].icon.includes("d")
-                      ? "sunrise"
-                      : "sunset"
-                  ]
-                )}`}
+                name={isDay ? "sunrise" : "sunset"}
+                value={`${getTime(weather?.sys[isDay ? "sunrise" : "sunset"])}`}
               />
             </WeatherInfoContainer>
             <WeatherInfoContainer>
