@@ -1,1 +1,0 @@
-export const isDay = weather?.weather[0].icon.includes("d");
