@@ -17,7 +17,7 @@ const useFetch = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onButtonClick()
-    },5000,)
+    },3000,)
     return () => clearTimeout(timer)
   }, [textInput])
 
