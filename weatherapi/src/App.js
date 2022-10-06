@@ -18,7 +18,7 @@ import { BsSun } from "react-icons/bs";
 
 function App() {
   const dataWeather = useFetch();
-  const {weather, setTextInput, onButtonClick, getTime } = dataWeather;
+  const {weather, addLocation, onButtonClick, getTime } = dataWeather;
 
   const isDay = weather?.weather[0].icon.includes("d");
 
@@ -27,7 +27,7 @@ function App() {
       <>
         <WeatherHeadline />
         <WeatherIcon />
-        <WeatherButton onSubmit={onButtonClick} onChange={e => setTextInput(e.target.value)} />
+        <WeatherButton onSubmit={onButtonClick} onChange={addLocation} />
       </>
 
       <>

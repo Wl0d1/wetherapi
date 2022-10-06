@@ -21,7 +21,9 @@ const useFetch = () => {
     return () => clearTimeout(timer)
   }, [textInput])
 
-  
+  const addLocation = (e) => {
+    setTextInput(e.target.value)
+  };
 
   const getTime = (timestamp) => {
     return `${new Date(timestamp * 1000).getHours()} : ${new Date(
@@ -29,6 +31,6 @@ const useFetch = () => {
     ).getMinutes()} : ${new Date(timestamp * 1000).getSeconds()}`;
   };
 
-  return { weather, setTextInput , onButtonClick, getTime };
+  return { weather, addLocation , onButtonClick, getTime };
 };
 export default useFetch;
